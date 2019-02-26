@@ -1,0 +1,93 @@
+<!--
+  Generated template for the MoviePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ movie.Title }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row>
+    <ion-col>
+      <h1>{{ movie.Title }}</h1>
+      <span> ({{ movie.Released }})</span>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <span class="rated">{{ movie.Rated }}</span>
+      <p id="globalInfos"> {{ movie.Runtime }} - {{ movie.Genre }} </p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <img id="poster" width="140px" src="{{ movie.Poster }}" alt="No poster found">
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <p id="plot">{{ movie.Plot }}</p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <p id="director">
+        <span class="bold">Director: </span>
+        {{ movie.Director }}
+      </p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <p id="writers">
+        <span class="bold">Writers: </span>
+        {{ movie.Writer }}
+      </p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <p id="actors">
+        <span class="bold">Stars: </span>
+        {{ movie.Actors }}
+      </p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-2>
+        <ion-item id="ratings" *ngFor="let rating of movie.Ratings">
+          <h3 class="value">{{ rating.Value }}</h3>
+          <p class="source">{{ rating.Source }}</p>
+        </ion-item>
+    </ion-col>
+    <ion-col>
+      <p id="language">
+        <span class="bold">Language</span>
+        {{ movie.Language }}
+      </p>
+      <p id="country">
+        <span class="bold">Country</span>
+        {{ movie.Country }}
+      </p>
+      <p id="awards">
+        <span class="bold">Awards</span>
+        {{ movie.Awards }}
+      </p>
+      <p id="boxoffice">
+        <span class="bold">Bovoffice</span>
+        {{ movie.BoxOffice }}
+      </p>
+      <p id="production">
+        <span class="bold">Production</span>
+        {{ movie.Production }}
+      </p>
+    </ion-col>
+  </ion-row>
+</ion-content>

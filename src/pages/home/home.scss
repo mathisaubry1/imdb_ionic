@@ -1,0 +1,65 @@
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+}
+
+.movie {
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    transition-duration: 0.5s;
+    transform: translate(0px);
+}
+
+.movie:hover {
+    transition-duration: 0.5s;
+    transform: translate(40px);
+}
+
+page-home {
+
+}
+
+.na {
+    color: white;
+    background-color: grey;
+}
+
+.good {
+        color: white;
+    background-color: green;
+}
+
+.bad {
+    color: white;
+    background: red;
+}
+
+.rated {
+    padding: 0 3px;
+    border: grey solid 1px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.toolbar-background {
+    background-color: #1DC7FF;
+}
+
+.toolbar-title {
+    color: white; 
+}
+
+.toolbar-button {
+    color: white;
+}
+
+.hide {
+    display: none;
+}

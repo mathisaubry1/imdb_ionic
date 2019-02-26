@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title color="light">
+      ImDB Ionic App
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-list>
+      <h1>Movies</h1>
+      <ion-input id="searchBar" type="text" [(ngModel)]="search" placeholder="Search ..."></ion-input>
+      <button ion-button icon-start (click)="moviesProvider.loadMovies(search)">
+        <ion-icon name="search" color="1DC7FF"></ion-icon>
+        Go!
+      </button>
+      <ion-item *ngFor="let movie of moviesProvider.movies">
+        <ion-row class="movie" (click)="goto(movie.imdbID)">
+          <ion-col col-1>
+            <img class="poster" width="140px" src="{{ movie.Poster }}" alt="No poster found">
+          </ion-col>
+          <ion-col col-2>
+            <h1 class="title">{{ movie.Title }}</h1>
+            <p class="globalInfos">
+              <span class="rated" [ngClass]="{ 'hide': movie.Rated === 'N/A' }">{{ movie.Rated }}</span>
+              <span [ngClass]="{ 'hide': movie.Runtime === 'N/A' }">{{ movie.Runtime }}</span>
+              <span [ngClass]="{ 'hide': movie.Runtime === 'N/A' || movie.Genre === 'N/A' }"> - </span>
+              <span [ngClass]="{ 'hide': movie.Genre === 'N/A' }">{{ movie.Genre }}</span>
+            </p>
+            <p class="metascore">
+              <span [ngClass]="{ 'na': movie.Metascore === 'N/A', 'good': +movie.Metascore >= 50 , 'bad': +movie.Metascore <= 50 }">{{ movie.Metascore }}</span>
+            </p>
+            <p class="plot" [ngClass]="{ 'hide': movie.Plot === 'N/A' }">{{ movie.Plot }}</p>
+            <h3 class="director" [ngClass]="{ 'hide': movie.Director === 'N/A' }"><strong>Director:</strong> {{ movie.Director }}</h3>
+            <h3 class="actors" [ngClass]="{ 'hide': movie.Actors === 'N/A' }"><strong>Stars:</strong> {{ movie.Actors }}</h3>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
+
+</ion-content>
